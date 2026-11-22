@@ -1,18 +1,14 @@
 class Product:
-    def __init__(self, name, description, price, stock, category, image):
-        self.name = name
-        self.description = description
-        self.price = float(price)
-        self.stock = int(stock)
-        self.category = category
-        self.image = image
+    def __init__(self, name, price, quantity):
+        self.name= name
+        self.price=price
+        self.quantity=quantity
+
+
 
     def toDBCollection(self):
         return{
-            "name": self.name,
-            "description": self.description,
-            "price": self.price,
-            "stock": self.stock,
-            "category": self.category,
-            "image": self.image
+            'name':self.name,
+            'price':self.price,
+            'quantity':self.quantity
         }
