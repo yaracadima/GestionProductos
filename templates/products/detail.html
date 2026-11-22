@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block title %}Detalle del producto{% endblock %}
+
+{% block content %}
+
+<div class="card shadow mx-auto" style="max-width:650px;">
+
+    <img src="{{ product.image or 'https://placehold.co/600x350?text=Sin+imagen' }}"
+         class="card-img-top"
+         style="height:300px; object-fit:contain;">
+
+    <div class="card-body">
+
+        <h2>{{ product.name }}</h2>
+
+        <p>{{ product.description }}</p>
+
+        <h4 class="text-success">
+            Bs. {{ "%.2f"|format(product.price|float) }}
+        </h4>
+
+        <p><strong>Stock:</strong> {{ product.stock }}</p>
+
+        <p><strong>Categoría:</strong> {{ product.category }}</p>
+
+        <a href="{{ url_for('edit_view', id=product._id) }}"
+           class="btn btn-warning">
+            Editar
+        </a>
+
+        <a href="{{ url_for('home') }}"
+           class="btn btn-secondary">
+            Volver
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
